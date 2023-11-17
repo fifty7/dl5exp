@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Null 1</title>
+    </head>
+    <body>
+        <pre>
+This code implements a simple Continuous Bag of Words (CBOW) model for word embeddings. CBOW is a type of word2vec model that aims to predict a target word given its context words. The implementation includes data cleaning, vocabulary creation, embedding initialization, linear model, forward and backward functions, optimization, training, analysis, and prediction.
+
+Let's go through the code step by step:
+
+1. **Data Cleaning:**
+   - Special characters are removed.
+   - Single-letter words are removed.
+   - All characters are converted to lowercase.
+
+2. **Vocabulary Creation:**
+   - The cleaned text is split into words.
+   - The vocabulary (`vocab`) is created as a set of unique words.
+   - `word_to_ix` and `ix_to_word` dictionaries are created for mapping words to indices and vice versa.
+
+3. **Data Preparation:**
+   - Training data is generated with a context window of size 2.
+   - Each data point consists of a context of two words before and two words after a target word.
+
+4. **Embeddings Initialization:**
+   - Random initialization of word embeddings (`embeddings`) with a specified dimension (`embed_dim`) for each word in the vocabulary.
+
+5. **Linear Model:**
+   - A linear model is defined using the `linear` function, which performs a dot product between the context embeddings and a weight matrix (`theta`).
+
+6. **Softmax and Negative Log Likelihood Loss:**
+   - The `log_softmax` function computes the log softmax probabilities.
+   - The `NLLLoss` function calculates the negative log likelihood loss given the predicted log probabilities and target indices.
+
+7. **Forward Function:**
+   - The `forward` function computes the forward pass of the model, including the context embeddings, linear transformation, and log softmax.
+
+8. **Backward Function:**
+   - The `backward` function computes the gradients with respect to the model parameters using backpropagation.
+
+9. **Optimization Function:**
+   - The `optimize` function updates the model parameters using gradient descent.
+
+10. **Training Loop:**
+    - The model is trained for a specified number of epochs.
+    - Losses are calculated for each data point and accumulated for each epoch.
+    - Gradients are computed using backpropagation, and the model parameters are updated.
+
+11. **Analysis and Plotting:**
+    - The training losses for each epoch are stored in `epoch_losses`.
+    - A plot is generated to visualize the loss across epochs.
+
+12. **Prediction Function:**
+    - The `predict` function predicts a target word given a context.
+
+13. **Accuracy Function:**
+    - The `accuracy` function calculates the accuracy of the model on the training data.
+
+14. **Example Predictions:**
+    - Examples of word predictions given specific contexts are provided using the `predict` function.
+
+15. **Accuracy Calculation:**
+    - The overall accuracy of the model on the training data is calculated using the `accuracy` function.
+
+The code demonstrates a basic CBOW model for word embeddings and provides insights into training, analysis, and prediction. Note that this is a simplified example, and in practice, more sophisticated architectures and techniques may be used for better performance.
+    
+        </pre>
+    </body>
+</html>
